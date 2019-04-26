@@ -5,6 +5,7 @@ var tableData = data;
 const filter_table = d3.select("#filter-btn");
 const inputField1 = d3.select("#datetime");
 const tbody = d3.select("tbody");
+var resetbtn = d3.select("#reset-btn");
 const columns = [
   "datetime",
   "city",
@@ -52,4 +53,9 @@ filter_table.on("click", function() {
       .append("td")
       .text("No results found!");
   }
+});
+resetbtn.on("click", () => {
+  tbody.html("");
+  populate(data);
+  console.log("Table reset");
 });
